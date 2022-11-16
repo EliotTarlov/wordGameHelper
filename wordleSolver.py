@@ -1,7 +1,7 @@
 import re
 try:
 	file = open("/usr/share/dict/words", "r")
-	englishDictionary = re.sub("[^\w]", " ",  file.read()).split()
+	englishDictionary = set(re.sub("[^\w]", " ",  file.read()).split())
 	file.close()
 except (FileNotFoundError,IOError):
 	from enchant import Dict
